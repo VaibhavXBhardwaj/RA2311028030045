@@ -10,6 +10,13 @@
 
 ---
 
+## Screenshots
+<img width="699" height="354" alt="Screenshot 2026-05-02 112722" src="https://github.com/user-attachments/assets/521d436d-c3e1-4f8a-be16-550d9bcbc1a8" />
+##
+<img width="951" height="395" alt="Screenshot 2026-05-02 112654" src="https://github.com/user-attachments/assets/87a55caa-990d-4f13-b07f-798a266a6f14" />
+
+
+
 ##  Repository Structure
 
 ```RA2311028030045/
@@ -169,3 +176,4 @@ node index.js
 ##  License
 
 MIT © 2026 Vaibhav Bhardwaj — See [LICENSE](./LICENSE) for details.
+
