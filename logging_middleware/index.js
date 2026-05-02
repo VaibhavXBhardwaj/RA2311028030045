@@ -12,26 +12,18 @@ const credentials = {
   rollNo: "ra2311028030045",
   accessCode: "QkbpxH",
   clientID: "62f55478-cac5-4819-874d-2256a5ffeeb5",
-  clientSecret: "NnZAnWzbrdxeqwam",
+  clientSecret: "NnZAnWzbrdxeqwaw",
 };
 
 async function getToken() {
   const now = Math.floor(Date.now() / 1000);
   if (_token && now < _tokenExpiry - 60) return _token;
-
   const res = await axios.post(AUTH_URL, credentials);
   _token = res.data.access_token;
   _tokenExpiry = res.data.expires_in;
   return _token;
 }
 
-/**
- * 
- * @param {string} stack  
- * @param {string} level  
- * @param {string} package 
- * @param {string} message 
- */
 async function Log(stack, level, pkg, message) {
   try {
     const token = await getToken();
@@ -41,9 +33,8 @@ async function Log(stack, level, pkg, message) {
       { headers: { Authorization: `Bearer ${token}` } }
     );
   } catch (err) {
-    
-    console.error("[logger] failed to ship log:", err.message);
+    console.error("[logger] failed to ship log:", err.response?.data || err.message);
   }
 }
 
-module.exports = { Log };
+module.exports = { Log, getToken };
